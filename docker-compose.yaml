@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  influx:
+    image: influxdb:1.7.4
+    restart: always
+    ports:
+      - "8086:8086"
+      - "8083:8083"
+    networks:
+      grafana:
+  backend:
+    image: 1056646612/message
+    ports:
+      - "8081:8081"
+    networks:
+      grafana:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "~/static:/usr/share/nginx/html"
+    networks:
+      grafana:
+  grafana:
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      grafana:
+
+networks:
+  grafana:
+    driver: bridge
