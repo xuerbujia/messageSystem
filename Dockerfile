@@ -1,4 +1,4 @@
-FROM 1056646612/amd64-golang AS builder
+FROM golang AS builder
 WORKDIR /
 COPY . .
 ENV GO111MODULE=on \
