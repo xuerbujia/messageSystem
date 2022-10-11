@@ -1,4 +1,4 @@
 influx:
-  addr: "http://influx:8086"
+  addr: "http://127.0.0.1:8086"
   user_name: "admin"
   password: "admin"

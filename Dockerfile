@@ -13,6 +13,7 @@ RUN go build -o app cmd/main.go
 FROM busybox
 COPY --from=builder /app /
 COPY config.yaml /
+EXPOSE 8081
 CMD ./app
 
 
