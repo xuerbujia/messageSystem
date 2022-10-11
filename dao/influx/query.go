@@ -33,7 +33,8 @@ func WritePoint() {
 		"pm":    100 + float64(rand.Intn(10)),
 		"light": 100 + float64(rand.Intn(10)),
 	}
-	pt, err := influxdb.NewPoint("pm", nil, fields, time.Now())
+	t := time.Now()
+	pt, err := influxdb.NewPoint("pm", nil, fields, t)
 	//pt, err := influxdb.NewPoint("pm_monitoring", nil, fields, time.Now())
 	if err != nil {
 		log.Fatal(err)
